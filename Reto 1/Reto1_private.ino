@@ -177,10 +177,10 @@ void loop()
   float h = dht.readHumidity();
   float t = dht.readTemperature();
   int lum = analogRead(A0);
-  //float l = lum * (3.3 / 1023.0); // Convierte la lectura analoga (de 0 - 1023) a voltaje (0 - 5V)
+  //float l = lum * (3.3 / 1024.0); // Convierte la lectura analoga (de 0 - 1024) a voltaje (0 - 3.3V)
   float l = lum; // Convierte la lectura analoga
   //Transforma la información a la notación JSON para poder enviar los datos 
-  //El mensaje que se envía es de la forma {"value": x}, donde x es el valor de temperatura o humedad
+  //El mensaje que se envía es de la forma {"value": x}, donde x es el valor de temperatura o humedad o luminosidad
   
   //JSON para humedad
   String json = "{\"value\": "+ String(h) + "}";
