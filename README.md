@@ -1,2 +1,5 @@
 # MISO_IoT_Retos
-Repositorio para los retos de IoT
+
+Repositorio para entregas los retos de IoT de la pareja:
+Juan Diego Alzate
+Andrés Aldana
