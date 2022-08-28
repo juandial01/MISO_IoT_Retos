@@ -29,7 +29,7 @@ send mens ant
 
 inc ite
 cprint ite
-if (ite >= 1000)
+if (ite >= 100000)
     stop
 end
 

@@ -2,8 +2,8 @@ CupCarbon v. IoT 5.2
 ----------------
 name:sensonres2
 zoom:1
-centerposition_la:4.595835426309935
-centerposition_lo:-74.06164884567261
+centerposition_la:4.596669584317451
+centerposition_lo:-74.06245350837708
 map:0
 display_details:true
 draw_radio_links:true
@@ -11,7 +11,7 @@ draw_sensor_arrows:true
 radio_links_color:0
 draw_marker_arrows:false
 display_rl_distance:false
-propagation:true
+propagation:false
 display_marker_distance:false
 display_radio_messages:true
 draw_script_file_name:true
