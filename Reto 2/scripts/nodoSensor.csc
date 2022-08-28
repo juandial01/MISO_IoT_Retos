@@ -20,6 +20,12 @@ if(tipo=="alerta")
 end
 delay 1000
 
+areadsensor tempSen
+rdata tempSen SensTipo idSens temp
+
+
+data mens "alerta" lonSen latSen
+send mens ant
 
 inc ite
 cprint ite
