@@ -6,7 +6,7 @@ device_longitude:-74.06072616577148
 device_latitude:4.5964450029493475
 device_elevation:0.0
 device_radius:0.0
-device_hide:4
+device_hide:0
 device_draw_battery:true
 device_sensor_unit_radius:50.0
 device_script_file_name:nodoSensor.csc

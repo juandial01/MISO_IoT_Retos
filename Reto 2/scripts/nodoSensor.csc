@@ -20,16 +20,9 @@ if(tipo=="alerta")
 end
 delay 1000
 
-areadsensor tempSen
-rdata tempSen SensTipo idSens temp
-
-if(temp>30)
-   data mens "alerta" lonSen latSen
-   send mens ant
-end
 
 inc ite
-print ite
+cprint ite
 if (ite >= 1000)
     stop
 end
@@ -37,7 +30,7 @@ end
 if (tipo=="stop")
     data mens "stop"
     send mens * valor
-    ptintln "Para sensor: " id
+    cprint "Para sensor: " id
     wait 1000
     stop
 end

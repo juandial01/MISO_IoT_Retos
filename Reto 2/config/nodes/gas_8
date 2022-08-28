@@ -6,5 +6,5 @@ device_longitude:-74.06055450439453
 device_latitude:4.5967872219939245
 device_elevation:0.0
 device_radius:10.0
-device_hide:4
+device_hide:0
 natural_event_file_name:event3.evt
