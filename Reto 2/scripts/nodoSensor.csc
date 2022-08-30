@@ -5,7 +5,7 @@ atget id id
 getpos2 lonSen latSen
 
 loop
-wait 100
+wait 10
 read mens
 rdata mens tipo valor
 
@@ -18,7 +18,7 @@ end
 if(tipo=="alerta")
    send mens ant
 end
-delay 1000
+delay 10
 
 areadsensor tempSen
 rdata tempSen SensTipo idSens temp
@@ -37,7 +37,7 @@ if (tipo=="stop")
     data mens "stop"
     send mens * valor
     cprint "Para sensor: " id
-    wait 1000
+    wait 10
     stop
 end
 

@@ -14,9 +14,9 @@ if(tipo == "critico")
     cprint "Nodo descargado en: longitud" valor1 ", latitud: " valor2
     data p "stop"   
     send p
-    wait 1000
+    wait 10
     stop
 end
 
-wait 100
+wait 10
 
