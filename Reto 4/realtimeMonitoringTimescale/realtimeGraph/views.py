@@ -605,7 +605,7 @@ class RemaView(generics.GenericAPIView):
         "end": endTime
     }
     """
-    def to_dict(instance):
+    def to_dict(self, instance):
         from itertools import chain
         opts = instance._meta
         data = {}
