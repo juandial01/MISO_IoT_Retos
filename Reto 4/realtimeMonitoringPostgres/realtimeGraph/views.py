@@ -24,7 +24,8 @@ from .models import City, Country, Data, Location, Measurement, Role, State, Sta
 from realtimeMonitoring import settings
 import dateutil.relativedelta
 from django.db.models import Avg, Max, Min, Sum
-
+from rest_framework import generics
+from rest_framework.response import Response
 
 class DashboardView(TemplateView):
     template_name = 'index.html'
@@ -378,8 +379,9 @@ class HistoricalView(TemplateView):
         return render(request, self.template_name)
 
 
-class RemaView(ListView):
+class RemaView(generics.GenericAPIView):
     template_name = 'rema.html'
+    name = 'rema'
 
     '''
     Get de /rema. Si el usuario no está logueado se redirige a la página de login.
@@ -392,7 +394,7 @@ class RemaView(ListView):
     def get(self, request, **kwargs):
         # if request.user == None or not request.user.is_authenticated:
         #     return HttpResponseRedirect("/login/")
-        return JsonResponse({'data': self.get_context_data(**kwargs)})
+        return Response({'data': self.get_context_data(**kwargs)})
 
     '''
     Se procesan los datos para cargar el contexto del template.
