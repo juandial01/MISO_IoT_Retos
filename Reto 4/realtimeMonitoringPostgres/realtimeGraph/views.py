@@ -17,7 +17,7 @@ from django.http import JsonResponse
 from django.http.response import FileResponse, Http404, HttpResponse, HttpResponseBadRequest, HttpResponseNotFound, HttpResponseRedirect, HttpResponseServerError
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView, View
+from django.views.generic import TemplateView, ListView
 from django.shortcuts import render
 from random import randint
 from .models import City, Country, Data, Location, Measurement, Role, State, Station, User
@@ -378,7 +378,7 @@ class HistoricalView(TemplateView):
         return render(request, self.template_name)
 
 
-class RemaView(View):
+class RemaView(ListView):
     template_name = 'rema.html'
 
     '''
