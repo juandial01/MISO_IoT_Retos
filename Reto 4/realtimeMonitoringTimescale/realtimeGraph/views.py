@@ -605,6 +605,15 @@ class RemaView(generics.GenericAPIView):
         "end": endTime
     }
     """
+    def to_dict(instance):
+        from itertools import chain
+        opts = instance._meta
+        data = {}
+        for f in chain(opts.concrete_fields, opts.private_fields):
+            data[f.name] = f.value_from_object(instance)
+        for f in opts.many_to_many:
+            data[f.name] = [i.id for i in f.value_from_object(instance)]
+        return data
 
     def get_context_data(self, **kwargs):
         context = {}
@@ -677,7 +686,7 @@ class RemaView(generics.GenericAPIView):
 
         context["measurements"] = list(map(lambda mesure: mesure.__dict__, measurements))
         context["selectedMeasure"] = selectedMeasure.name
-        context['locations'] = list(map(lambda location: model_to_dict(location), locations)) 
+        context['locations'] = list(map(lambda location: self.to_dict(location), locations)) 
         context["start"] = startFormatted
         context["end"] = endFormatted
         context["data"] = data
