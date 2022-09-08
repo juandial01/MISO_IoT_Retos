@@ -489,9 +489,9 @@ class RemaView(generics.GenericAPIView):
         startFormatted = start.strftime("%d/%m/%Y") if start != None else " "
         endFormatted = end.strftime("%d/%m/%Y") if end != None else " "
 
-        context['measurements'] = measurements
-        context['selectedMeasure'] = selectedMeasure
-        context['locations'] = locations
+        context["measurements"] = list(map(lambda mesure: mesure.__dict__, measurements))
+        context["selectedMeasure"] = selectedMeasure.name
+        context['locations'] = list(map(lambda location: location.__dict__, locations)) 
         context['start'] = startFormatted
         context['end'] = endFormatted
         context['data'] = data
