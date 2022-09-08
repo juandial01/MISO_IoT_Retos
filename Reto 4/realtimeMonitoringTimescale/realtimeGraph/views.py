@@ -39,7 +39,8 @@ from .models import (
 from realtimeMonitoring import settings
 import dateutil.relativedelta
 from django.db.models import Avg, Max, Min, Sum
-
+from rest_framework import generics
+from rest_framework.response import Response
 
 class DashboardView(TemplateView):
     template_name = "index.html"
@@ -564,22 +565,19 @@ def get_map_json(request, **kwargs):
     return JsonResponse(data_result)
 
 
-class RemaView(ListView):
+class RemaView(generics.GenericAPIView):
     template_name = "rema.html"
-
+    name = "rema"
     """
     Get de /rema. Si el usuario no está logueado se redirige a la página de login.
     Envía la página de template de historical.
     El archivo se descarga directamente del csv actualizado. No hay procesamiento ni filtros.
     """
 
-    def get_queryset(self):
-        pass
-
     def get(self, request, **kwargs):
         # if request.user == None or not request.user.is_authenticated:
         #     return HttpResponseRedirect("/login/")
-        return JsonResponse({'data': self.get_context_data(**kwargs)})
+        return Response({'data': self.get_context_data(**kwargs)})
 
     """
     Se procesan los datos para cargar el contexto del template.

@@ -394,7 +394,7 @@ class RemaView(generics.GenericAPIView):
     def get(self, request, **kwargs):
         # if request.user == None or not request.user.is_authenticated:
         #     return HttpResponseRedirect("/login/")
-        return Response({'data': self.get_data(**kwargs)})
+        return Response({'data': self.get_context_data(**kwargs)})
 
     '''
     Se procesan los datos para cargar el contexto del template.
@@ -422,7 +422,7 @@ class RemaView(generics.GenericAPIView):
     }
     '''
 
-    def get_data(self, **kwargs):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
         measureParam = self.kwargs.get('measure', None)
