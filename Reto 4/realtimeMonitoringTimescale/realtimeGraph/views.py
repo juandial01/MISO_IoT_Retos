@@ -21,7 +21,7 @@ from django.http.response import (
 )
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, DetailView
 from django.shortcuts import render
 from django.utils import timezone
 from random import randint
