@@ -386,7 +386,9 @@ class RemaView(DetailView):
     Envía la página de template de historical.
     El archivo se descarga directamente del csv actualizado. No hay procesamiento ni filtros.
     '''
-
+    def get_queryset(self):
+        pass
+    
     def get(self, request, **kwargs):
         self.object = self.get_object()
         # if request.user == None or not request.user.is_authenticated:
