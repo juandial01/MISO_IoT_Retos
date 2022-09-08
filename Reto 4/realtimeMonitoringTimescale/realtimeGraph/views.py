@@ -654,7 +654,7 @@ class RemaView(generics.GenericAPIView):
             minVal = locationData.aggregate(Min("min_value"))["min_value__min"]
             maxVal = locationData.aggregate(Max("max_value"))["max_value__max"]
             avgVal = locationData.aggregate(Avg("avg_value"))["avg_value__avg"]
-            sumVal = locationData.aggregate(Sum("sum_value"))["sum_value__sum"]
+            sumVal = locationData.aggregate(Sum("values"))["sum_value__sum"]
             count = locationData.count()
 
             data.append(
