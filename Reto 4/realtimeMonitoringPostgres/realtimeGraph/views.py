@@ -390,7 +390,6 @@ class RemaView(ListView):
         pass
 
     def get(self, request, **kwargs):
-        self.object = self.get_object()
         # if request.user == None or not request.user.is_authenticated:
         #     return HttpResponseRedirect("/login/")
         return JsonResponse({'data': self.get_context_data(**kwargs)})
