@@ -41,6 +41,7 @@ import dateutil.relativedelta
 from django.db.models import Avg, Max, Min, Sum
 from rest_framework import generics
 from rest_framework.response import Response
+from django.forms.models import model_to_dict
 
 class DashboardView(TemplateView):
     template_name = "index.html"
@@ -676,7 +677,7 @@ class RemaView(generics.GenericAPIView):
 
         context["measurements"] = list(map(lambda mesure: mesure.__dict__, measurements))
         context["selectedMeasure"] = selectedMeasure.name
-        context['locations'] = locations.values()
+        context['locations'] = list(map(lambda location: model_to_dict(location), locations)) 
         context["start"] = startFormatted
         context["end"] = endFormatted
         context["data"] = data
