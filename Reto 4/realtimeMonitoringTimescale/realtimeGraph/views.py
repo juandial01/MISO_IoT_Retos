@@ -21,7 +21,7 @@ from django.http.response import (
 )
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
-from django.views.generic import TemplateView, DetailView
+from django.views.generic import TemplateView, View
 from django.shortcuts import render
 from django.utils import timezone
 from random import randint
@@ -564,7 +564,7 @@ def get_map_json(request, **kwargs):
     return JsonResponse(data_result)
 
 
-class RemaView(DetailView):
+class RemaView(View):
     template_name = "rema.html"
 
     """
@@ -572,7 +572,7 @@ class RemaView(DetailView):
     Envía la página de template de historical.
     El archivo se descarga directamente del csv actualizado. No hay procesamiento ni filtros.
     """
-    
+
     def get_queryset(self):
         pass
 
