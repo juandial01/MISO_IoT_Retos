@@ -686,7 +686,7 @@ class RemaView(generics.GenericAPIView):
 
         context["measurements"] = list(map(lambda mesure: mesure.__dict__, measurements))
         context["selectedMeasure"] = selectedMeasure.name
-        context['locations'] = list(map(lambda location: self.to_dict(location), locations)) 
+        context['locations'] = list(map(lambda location: {'description': location.description, 'lat': location.lat, 'lng': location.lng, 'city': location.city.name, 'state': location.state.name}, locations)) 
         context["start"] = startFormatted
         context["end"] = endFormatted
         context["data"] = data
