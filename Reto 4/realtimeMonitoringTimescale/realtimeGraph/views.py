@@ -664,19 +664,21 @@ class RemaView(generics.GenericAPIView):
             minVal = locationData.aggregate(Min("min_value"))["min_value__min"]
             maxVal = locationData.aggregate(Max("max_value"))["max_value__max"]
             avgVal = locationData.aggregate(Avg("avg_value"))["avg_value__avg"]
-            values = locationData.values
+            sumVal = locationData.aggregate(Sum("length"))["length__sum"]
+            totalTime = locationData.aggregate(Sum("time"))["time__sum"]
             count = locationData.count()
 
             data.append(
                 {
                     "name": f"{location.city.name}, {location.state.name}, {location.country.name}",
+                    'totalTime': totalTime,
                     "lat": location.lat,
                     "lng": location.lng,
                     "population": stations.count(),
                     "min": minVal if minVal != None else 0,
                     "max": maxVal if maxVal != None else 0,
                     "avg": round(avgVal if avgVal != None else 0, 2),
-                    'values': values,
+                    'sumVal': sumVal if sumVal != None else 0,
                     'count': count if count != None else 0,
                 }
             )
